@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Formulário de Solicitação para Criação de Sites</title>
+
+            <link rel="stylesheet" type="text/css" href="/resources/style-guide/css/fluig-style-guide.min.css">
+            <script src="/resources/js/jquery/jquery.js"></script>
+            <script src="/resources/js/jquery/jquery-ui.min.js"></script>
+            <script src="/resources/js/mustache/mustache-min.js"></script>
+            <script src="/resources/style-guide/js/fluig-style-guide.min.js"></script>
+
+            <!-- CUSTOM -->
+            <link href="/resources/style-guide/css/fluig-style-guide-filter.min.css" rel="stylesheet" type="text/css">
+            <link href="/resources/style-guide/css/fluig-style-guide-ratingstars.min.css" rel="stylesheet" type="text/css">
+            <script src="/resources/style-guide/js/fluig-style-guide-filter.min.js"></script>
+            <script src="/resources/style-guide/js/fluig-style-guide-ratingstars.min.js"></script>
+
+            <link href='/webdesk/customresources?cid=1&resourceName=temaFormulario/0.css' type='text/css' rel='stylesheet' />
+            
+            <link href='custom-style.css' type='text/css' rel='stylesheet' />            
+            <script type="text/javascript" src="main.js"></script>
+		</head>
+        <body class="fluig-style-guide">
+			
+			<form class="totvs-form grid vertical create-form-components ui-sortable t0 custom-form" name="createFormComponents">
+
+				<input type="hidden" class="form-control" name="avaliado_customer_nome" value="" placeholder="" data-size="big" maxlength="255" required="required" analytics="true">
+				<input type="hidden" class="form-control" name="avaliado_criacao_nome" value="" placeholder="" data-size="big" maxlength="255" required="required" analytics="true">
+				<input type="hidden" class="form-control" name="avaliado_dev_nome" value="" placeholder="" data-size="big" maxlength="255" required="required" analytics="true">
+				<input type="hidden" class="form-control" name="avaliador_customer_nome" value="" placeholder="" data-size="big" maxlength="255" required="required" analytics="true">
+				<input type="hidden" class="form-control" name="avaliador_criacao_nome" value="" placeholder="" data-size="big" maxlength="255" required="required" analytics="true">
+				<input type="hidden" name="total_refacao_dev" value="0" analytics="true" />
+				<input type="hidden" name="total_refacao_criacao" value="0" analytics="true" />
+								
+				<h1 class="title-form-application">Formulário de Processo para Criação de Sites</h1>
+				
+				<div class="paragraph-is-required system-message-information alert alert-danger" role="alert">Todos os campos com * são de preenchimento obrigatório.</div>
+				
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="form-field" data-show-properties="" data-field-name="empresa">
+							<div class="form-input">
+								<div class="form-group">
+									<label for="empresa">Empresa:</label><span class="required text-danger"><strong>*</strong></span>
+									<input type="zoom"
+									    id="empresa"
+									    name="empresa"
+									    data-zoom="{
+									            'displayKey':'empresa',
+									            'datasetId':'ds_empresas_v3',
+									            'maximumSelectionLength':'1',
+									            'resultLimit':5,
+									            'placeholder': 	'Selecione a empresa',
+									            'filterValues':'metadata_active,true,status,ATIVO',
+									            'fields':[
+									                {
+									                   'field':'id',
+									                   'label':'ID'
+									                },{
+									                  'field':'empresa',
+									                  'label':'Nome',
+									                  'standard':'true'
+									                },{
+									                  'field':'cnpj',
+									                  'label':'CNPJ'
+									                }
+									            ]
+									         }" analytics="true" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-field" data-type="combo" data-show-properties="" data-field-name="tipo_site">
+					<div class="form-input">
+						<div class="form-group">
+							<label>Tipo de Site</label><span class="required text-danger"><strong>*</strong></span>
+							<select class="form-control" name="tipo_site" required="required" analytics="true">
+								<option value="">Selecione</option>
+								<option value="MULTIPAGE">Multipage</option>
+								<option value="ONE PAGE">One Page</option>
+								<option value="LANDING PAGE">Landing Page</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-field" data-type="textarea" data-show-properties="" data-field-name="comentarios_ad">
+					<div class="form-input">
+						<div class="form-group">
+							<label>Briefing</label><span class="required text-danger"><strong>*</strong></span>
+							<textarea class="form-control"  name="comentarios_ad" placeholder="" data-size="big" maxlength="4000" rows="5" style="width: 100%;" required="required"></textarea>
+						</div>
+					</div>
+				</div>
+				
+				<div id="avl_score_briefing" class="form-field text-center" data-type="ratingstar" data-show-properties="" data-field-name="avl_score_briefing">
+					<div class="paragraph-is-required system-message-information alert alert-danger" role="alert"><strong>ATENÇÃO!</strong> Este procedimento é obrigatório para continuidade do processo.</div>
+					<div class="form-input">
+						<div class="form-group">
+							<label>Avalie o Briefing</label>
+							<div class="rating fluig-ratingstars custom-fluig-ratingstars">
+								<i class="fa fluigicon fluigicon-star-empty fluigicon-sm"></i>
+								<i class="fa fluigicon fluigicon-star-empty fluigicon-sm"></i>
+								<i class="fa fluigicon fluigicon-star-empty fluigicon-sm"></i>
+								<i class="fa fluigicon fluigicon-star-empty fluigicon-sm"></i>
+								<i class="fa fluigicon fluigicon-star-empty fluigicon-sm"></i>
+							</div>
+							<input type="hidden" name="avl_score_briefing" class="rating-value" required="required" analytics="true" >
+						</div>
+					</div>
+					<div class="form-input">
+						<div class="form-group">
+							<label for="cmtt_avl_briefing">Comentários</label>
+							<textarea id="cmtt_avl_briefing" name="cmtt_avl_briefing" class="form-control"></textarea>
+							<p class="help-block">Não se preocupe, essa avaliação não será divulgada.</p>
+						</div>
+					</div>
+				</div>
+				
+				<div id="conteudo" class="form-field" data-type="textbox" data-show-properties="" data-field-name="conteudo">
+					<div class="form-input">
+						<div class="form-group">
+							<label>Anexe o Conteúdo</label><span class="required text-danger"><strong>*</strong></span>
+							<input type="button" name="conteudo" value="Insira Anexo" placeholder="" required="required" onclick="showCamera('conteudo_cliente');">
+							<p class="help-block">Adicione um arquivo no formato ZIP contendo: Materiais Gráficos, Logo e Informações.</p>
+						</div>
+					</div>
+				</div>
+				
+				<div id="link_criacao" class="form-field" data-type="textarea" data-show-properties="" data-field-name="link_criacao">
+					<div class="form-input">
+						<div class="form-group">
+							<label>URL dos arquivos PSD & JPG (Criação)</label><span class="required text-danger"><strong>*</strong></span>
+							<textarea class="form-control" name="link_criacao" value="" placeholder="" data-size="big" maxlength="4000" rows="5" style="width: 100%;" required="required"></textarea>
+						</div>
+					</div>
+				</div>
+				
+				<div id="avl_score_criacao" class="form-field text-center" data-type="ratingstar" data-show-properties="" data-field-name="avl_score_criacao">
+					<div class="paragraph-is-required system-message-information alert alert-danger" role="alert"><strong>ATENÇÃO!</strong> Este procedimento é obrigatório para continuidade do processo.</div>
+					<div class="form-input">
+						<div class="form-group">
+							<label>Avalie a Criação</label>
+							<div class="rating fluig-ratingstars custom-fluig-ratingstars">
+								<i class="fa fluigicon fluigicon-star-empty fluigicon-sm"></i>
+								<i class="fa fluigicon fluigicon-star-empty fluigicon-sm"></i>
+								<i class="fa fluigicon fluigicon-star-empty fluigicon-sm"></i>
+								<i class="fa fluigicon fluigicon-star-empty fluigicon-sm"></i>
+								<i class="fa fluigicon fluigicon-star-empty fluigicon-sm"></i>
+							</div>
+							<input type="hidden" name="avl_score_criacao" class="rating-value" required="required" analytics="true">
+						</div>
+					</div>
+					<div class="form-input">
+						<div class="form-group">
+							<label for="cmtt_avl_criacao">Comentários</label>
+							<textarea id="cmtt_avl_criacao" name="cmtt_avl_criacao" class="form-control"></textarea>
+							<p class="help-block">Não se preocupe, essa avaliação não será divulgada.</p>
+						</div>
+					</div>
+				</div>				
+				
+				<div id="apr_layout001" class="form-field" data-type="combo" data-show-properties="" data-field-name="apr_layout001">
+					<div class="form-input">
+						<div class="form-group">
+							<label>Aprovação do Cliente</label><span class="required text-danger"><strong>*</strong></span>
+							<select class="form-control" name="apr_layout001" required="required">
+								<option value="">Selecione</option>
+								<option value="SIM">Sim</option>
+								<option value="NAO">Não</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				
+				<div id="refacao_layout001" class="form-field" data-type="textarea" data-show-properties="" data-field-name="refacao_layout001">
+					<div class="form-input">
+						<div class="form-group">
+							<label>Comentários Refação (CRIAÇÃO)</label><span class="required text-danger"><strong>*</strong></span>
+							<textarea class="form-control" rows="3" name="refacao_layout001" placeholder="" data-size="big" maxlength="4000" style="width: 100%;"></textarea>
+						</div>
+					</div>
+				</div>		
+				
+				<div id="link_dev" class="form-field" data-type="textarea" data-show-properties="" data-field-name="link_dev">
+					<div class="form-input">
+						<div class="form-group">
+							<label>URL de homologação (DEV)</label><span class="required text-danger"><strong>*</strong></span>
+							<textarea class="form-control" name="link_dev" value="" placeholder="" data-size="big" maxlength="4000" rows="5" style="width: 100%;" required="required"></textarea>
+						</div>
+					</div>
+				</div>
+				
+				<div id="avl_score_dev" class="form-field text-center" data-type="ratingstar" data-show-properties="" data-field-name="avl_score_dev">
+					<div class="paragraph-is-required system-message-information alert alert-danger" role="alert"><strong>ATENÇÃO!</strong> Este procedimento é obrigatório para continuidade do processo.</div>
+					<div class="form-input">
+						<div class="form-group">
+							<label>Avalie o Desenvolvimento</label>
+							<div class="rating fluig-ratingstars custom-fluig-ratingstars">
+								<i class="fa fluigicon fluigicon-star-empty fluigicon-sm"></i>
+								<i class="fa fluigicon fluigicon-star-empty fluigicon-sm"></i>
+								<i class="fa fluigicon fluigicon-star-empty fluigicon-sm"></i>
+								<i class="fa fluigicon fluigicon-star-empty fluigicon-sm"></i>
+								<i class="fa fluigicon fluigicon-star-empty fluigicon-sm"></i>
+							</div>
+							<input type="hidden" name="avl_score_dev" class="rating-value" required="required" analytics="true">
+						</div>
+					</div>
+					<div class="form-input">
+						<div class="form-group">
+							<label for="cmtt_avl_dev">Comentários</label>
+							<textarea id="cmtt_avl_dev" name="cmtt_avl_dev" class="form-control"></textarea>
+							<p class="help-block">Não se preocupe, essa avaliação não será divulgada.</p>
+						</div>
+					</div>
+				</div>				
+				
+				<div id="apr_dev" class="form-field" data-type="combo" data-show-properties="" data-field-name="apr_dev">
+					<div class="form-input">
+						<div class="form-group">
+							<label>Aprovação do Cliente</label><span class="required text-danger"><strong>*</strong></span>
+							<select class="form-control" name="apr_dev" required="required">
+								<option value="">Selecione</option>
+								<option value="SIM">Sim</option>
+								<option value="NAO">Não</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				
+				<div id="refacao_dev" class="form-field" data-type="textarea" data-show-properties="" data-field-name="refacao_dev">
+					<div class="form-input">
+						<div class="form-group">
+							<label>Comentários Refação (DEV)</label><span class="required text-danger"><strong>*</strong></span>
+							<textarea class="form-control" rows="3" name="refacao_dev" placeholder="" data-size="big" maxlength="4000" style="width: 100%;"></textarea>
+						</div>
+					</div>
+				</div>
+
+				<div id="dadosftp">
+
+					<div id="host_ftp" class="form-field" data-type="combo" data-show-properties="" data-field-name="host_ftp">
+						<div class="form-input">
+							<div class="form-group">
+								<label>Host FTP:</label><span class="required text-danger"><strong>*</strong></span>
+								<input type="text" name="host_ftp" class="form-control" required="required">
+							</div>
+						</div>
+					</div>
+
+					<div id="user_ftp" class="form-field" data-type="combo" data-show-properties="" data-field-name="user_ftp">
+						<div class="form-input">
+							<div class="form-group">
+								<label>Usuário FTP:</label><span class="required text-danger"><strong>*</strong></span>
+								<input type="text" name="user_ftp" class="form-control" required="required">
+							</div>
+						</div>
+					</div>
+
+					<div id="senha_ftp" class="form-field" data-type="combo" data-show-properties="" data-field-name="senha_ftp">
+						<div class="form-input">
+							<div class="form-group">
+								<label>Senha FTP:</label><span class="required text-danger"><strong>*</strong></span>
+								<input type="text" name="senha_ftp" class="form-control" required="required">
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div id="conteudo_dev" class="form-field" data-type="textbox" data-show-properties="" data-field-name="conteudo_dev">
+					<div class="form-input">
+						<div class="form-group">
+							<label>Anexe os Arquivos</label><span class="required text-danger"><strong>*</strong></span>
+							<input type="button" name="conteudo_dev" value="Insira Anexo" placeholder="" required="required" onclick="showCamera('arquivos_dev');">
+							<p class="help-block">Adicione um arquivo no formato ZIP.</p>
+						</div>
+					</div>
+				</div>
+									
+			</form>
+		
+
+			<script type="text/javascript">
+				var keyDown = false, ctrl = 17, vKey = 86, Vkey = 118; 
+				  
+				$(document).keydown(function (e) {
+					if (e.keyCode == ctrl) keyDown = true;
+				}).keyup(function (e) {
+					if (e.keyCode == ctrl) keyDown = false;
+				});
+				
+				$('[data-only-numbers]').on('keypress', function (e) {
+				    if (!e) {
+					    var e = window.event;
+					}
+					
+				    if (e.keyCode > 0 && e.which == 0) {
+				    	 return true;
+					}
+					
+				    if (e.keyCode) {
+				        code = e.keyCode;
+					} else if (e.which) {
+				    	code = e.which;
+					}
+
+					if(code == 46) {
+						return true;
+					}
+					
+				    var character = String.fromCharCode(code);
+				    if (character == '\b' || character == ' ' || character == '\t') {
+				    	 return true;
+					}
+				    if (keyDown && (code == vKey || code == Vkey)) {
+				    	return (character);
+					} else  {
+						return (/[0-9]$/.test(character));
+					}
+				}).on('focusout', function (e) {
+				    var $this = $(this);
+					if($this.val() == "") {
+						return true;
+					}
+				    $this.val($this.val().replace(/[^0-9\.]/g, ''));
+				}).on('paste', function (e) {
+				    var $this = $(this);
+				    setTimeout(function () {
+				        $this.val($this.val().replace(/[^0-9\.]/g, ''));
+				    }, 5);
+				 });				
+
+				
+
+				$('.create-form-components').on('keyup', 'input[required="required"][type="text"], input[required="required"][type="number"], input[required="required"][type="date"], textarea[required="required"]', function(){
+					validationFieldsForm($(this), $(this).parents('.form-field').data('type'));
+				});
+
+				$('.create-form-components').on('change', 'input[required="required"][type="checkbox"], input[required="required"][type="radio"], select[required="required"]', function(){
+					validationFieldsForm($(this), $(this).parents('.form-field').data('type'));
+				});
+
+				function validationFieldsForm(field, type){
+					if(type === "checkbox" || type === "radio"){
+						if(!field.is(':checked')){
+							field.parents('.form-field').addClass('required');
+						}else{
+							field.parents('.form-field').removeClass('required');
+						}
+					}else{
+						if(!field.val().trim()){
+							field.parents('.form-field').addClass('required');
+						}else{
+							field.parents('.form-field').removeClass('required');
+						}
+					}
+				}
+
+				var $zoomPreview = $(".zoom-preview");
+				if ($zoomPreview.length) {
+                    $zoomPreview.parent().removeClass("input-group");
+                    $zoomPreview.remove();
+                }
+
+				var ratings = $(".rating");
+				if (ratings.length > 0) ratingStars(ratings);
+				function ratingStars(stars) {
+					$.each(stars, function(i, obj) {
+                        var field = $(this).closest(".form-group").find(".rating-value");
+						var tgt = $(obj);
+						tgt.html("");
+						var rating = FLUIGC.stars(tgt, { value: field.val() });
+                        rating.on("click", function(o) {
+                            field.val($(this).index() + 1);
+                        });
+					});
+				}
+
+				$.each($("[data-date]"), function(i, o) {
+                    var id = $(o).attr("id");
+					FLUIGC.calendar("#" + id);
+				});
+
+				$(document).ready(function() {
+					$.each($("[data-date]"), function(i, o) {
+	                    var id = $(o).attr("id");
+	                    if($("#" + id).attr("readonly")) {
+	                    	$("#" + id).data('DateTimePicker').disable();
+	                    }
+					});			
+				});
+				
+				$(document).ready(function() {
+					
+				});
+			</script>
+			<script language="javascript">  
+			          function showCamera(parameter) {
+			              JSInterface.showCamera(parameter);
+			          }
+			</script>			
+		</body>
+	</html>

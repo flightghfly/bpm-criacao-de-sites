@@ -1,0 +1,26 @@
+form.custom-form {
+ padding-top: 21px !important;
+ padding-left: 34px !important; 
+ padding-right: 34px !important; 
+ padding-bottom:34px !important;
+}
+
+.styled-readonly[readonly],
+.styled-readonly[readonly="readonly"] {
+	background-color: #FFF !important;
+}
+.bg-ghflyer {
+	background-color: rgb(75, 170, 211) !important;
+}
+legend {
+	color: rgb(75, 170, 211) !important;
+}
+.custom-icon-fluig > i {
+	color: #FFF;
+}
+.custom-fluig-ratingstars > i {
+	font-size:34px !important;
+}
+.custom-fluig-ratingstars > i:hover {
+	cursor: pointer;
+}
